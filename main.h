@@ -13,6 +13,6 @@ int _putchar(char c);
 int _print_string(va_list val);
 int strlen_helper(char *s);
 int _strlen(char *s);
-int _strlenc(const char *s)
+int _strlenc(const char *s);
 
 #endif
