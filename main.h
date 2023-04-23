@@ -10,7 +10,6 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void _puts(char *str);
-
+int _print_string(va_list val);
 
 #endif
