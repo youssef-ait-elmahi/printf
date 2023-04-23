@@ -11,5 +11,6 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _print_string(va_list val);
+int strlen_helper(char *s);
 
 #endif
