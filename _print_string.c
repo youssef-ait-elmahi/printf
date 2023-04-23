@@ -18,7 +18,7 @@ int _print_string(va_list val)
 		write(1, "(null)", 6);
 		return (6);
 	}
-	len = strlen(s);
+	len = strlen_helper(s);
 	write(1, s, len);
 	return (len);
 }
