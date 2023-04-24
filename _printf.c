@@ -33,6 +33,13 @@ int check(va_list mym, int ncp, const char *format)
 		_putchar('%');
 		ncp++;
 	}
+	else
+	{
+		_putchar('%');
+		ncp++;
+		_putchar(*format);
+		ncp++;
+	}
 	return (ncp);
 }
 
@@ -46,7 +53,9 @@ int _printf(const char *format, ...)
 	va_list mym;
 	int ncp = 0;
 
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	else if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	else if (format == NULL)
 		return (-1);
