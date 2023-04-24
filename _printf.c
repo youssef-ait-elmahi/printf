@@ -46,7 +46,9 @@ int _printf(const char *format, ...)
 	va_list mym;
 	int ncp = 0;
 
-	if (format == NULL)
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	else if (format == NULL)
 		return (-1);
 	va_start(mym, format);
 	while (*format != '\0')
