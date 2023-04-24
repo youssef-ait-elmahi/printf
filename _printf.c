@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's') /* string format specifier */
 			{
-				char *str = va_arg(mym, char *);
+				//char *str = va_arg(mym, char *);
 
 				ncp += _print_string(mym);
 			}
