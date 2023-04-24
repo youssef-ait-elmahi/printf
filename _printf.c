@@ -6,44 +6,42 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list mym; /* used to access each arg passed to the ft after format str */
-	int ncp = 0; /* ncp is the number of characters printed */
+	va_list mym;
+	int ncp = 0;
 
 	if (format == NULL)
 		return (-1);
 	va_start(mym, format);
-	while (*format != '\0') /* loop until end of format string is reached */
+	while (*format != '\0')
 	{
-		if (*format == '%') /* found a format specifier */
+		if (*format == '%')
 		{
-			format++; /* move past the '%' character */
-			if (*format == 'c') /* char format specifier */
+			format++;
+			if (*format == 'c')
 			{
-				char c = va_arg(mym, int); /* get next arg as int and cast it to char */
+				char c = va_arg(mym, int);
 
 				_putchar(c);
 				ncp++;
 			}
-			else if (*format == 's') /* string format specifier */
+			else if (*format == 's')
 			{
-				//char *str = va_arg(mym, char *);
 
 				ncp += _print_string(mym);
 			}
-			else if (*format == '%') /* escaped '%' character */
+			else if (*format == '%')
 			{
 				_putchar('%');
 				ncp++;
 			}
 		}
-		else /* regular character */
+		else
 		{
 			_putchar(*format);
 			ncp++;
 		}
-		format++; /* move on to the next character in the format string */
-	}
+		format++;
 	va_end(mym);
-
+	}
 	return (ncp);
 }

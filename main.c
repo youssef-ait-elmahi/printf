@@ -5,6 +5,10 @@
 int main(void)
 {
 	int len_1 = 0, len_2 = 0;
+	char *i = "hello world";
+
+	_printf("hello %s\n", i);
+	printf("hello %s\n", i);
 
 	/* ===========> %c <=========== */
 	printf("----------------------\n");
