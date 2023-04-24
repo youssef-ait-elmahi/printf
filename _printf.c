@@ -1,4 +1,41 @@
 #include "main.h"
+
+/**
+ * check - checks for format specifiers
+ * @mym: argument list
+ * @ncp: number of characters printed
+ * @format: format string
+ *
+ * Return: number of characters printed
+ */
+int check(va_list mym, int ncp, const char *format)
+{
+
+	if (*format == 'c')
+	{
+		char c = va_arg(mym, int);
+
+		_putchar(c);
+		ncp++;
+	}
+	else if (*format == 's')
+	{
+		char *str = va_arg(mym, char *);
+
+		if (str == NULL)
+		{
+			str = "(null)";
+		}
+			ncp += _print_string(str);
+	}
+	else if (*format == '%')
+	{
+		_putchar('%');
+		ncp++;
+	}
+	return (ncp);
+}
+
 /**
  * _printf - prints formatted output
  * @format: format string
@@ -16,32 +53,12 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-        	format++;
-        	while (*format == ' ')
-        	{
-                format++;
-        	}
-        	if (*format == 'c')
-        	{
-                char c = va_arg(mym, int);
-
-                _putchar(c);
-                ncp++;
-        	}
-       		else if (*format == 's') 
-        	{
-                char *str = va_arg(mym, char *);
-                if (str == NULL)
-                {
-                        str = "(null)";
-                }
-                ncp += _print_string(str);
-        	}
-        	else if (*format == '%')
-        	{
-                _putchar('%');
-                ncp++;
-        	}
+			format++;
+			while (*format == ' ')
+			{
+				format++;
+			}
+		ncp = check(mym, ncp, format);
 		}
 		else
 			{
