@@ -13,6 +13,7 @@ int _putchar(char c);
 int _print_string(char *s);
 int _strlen(char *s);
 int _strlenc(const char *s);
-
+int _print_int(int num);
+int _print_unsigned_int(unsigned int num);
 
 #endif

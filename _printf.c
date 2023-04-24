@@ -33,6 +33,12 @@ int check(va_list mym, int ncp, const char *format)
 		_putchar('%');
 		ncp++;
 	}
+	else if (*format == 'd' || *format == 'i')
+	{
+		int num = va_arg(mym, int);
+
+		ncp += _print_int(num);
+	}
 	else
 	{
 		_putchar('%');
